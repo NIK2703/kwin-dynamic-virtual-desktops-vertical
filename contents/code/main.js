@@ -29,7 +29,7 @@ function updateDesktops() {
   for (var i = 1; i <= workspace.desktops; i++)
     if (i != workspace.currentDesktop && winsInDesktop(i).length == 0)
       pullWinsFromDesktop(i);
-  workspace.desktops = Math.max(readConfig('minimumDesktops', 1), desktops() + 1);
+  workspace.desktops = Math.max(readConfig('minimumDesktops', 2), desktops() + 1);
 }
 
 function update() {
