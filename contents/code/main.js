@@ -26,10 +26,12 @@ function pullWinsFromDesktop(n) {
 }
 
 function updateDesktops() {
-  for (var i = 1; i <= workspace.desktops; i++)
-    if (i != workspace.currentDesktop && winsInDesktop(i).length == 0)
-      pullWinsFromDesktop(i);
-  workspace.desktops = Math.max(readConfig('minimumDesktops', 2), desktops() + 1);
+  var minDesktops = readConfig('minimumDesktops', 2)
+  if (workspace.desktops > minDesktops)
+    for (var i = 1; i <= workspace.desktops; i++)
+      if (i != workspace.currentDesktop && winsInDesktop(i).length == 0)
+        pullWinsFromDesktop(i);
+  workspace.desktops = Math.max(minDesktops, desktops() + 1);
 }
 
 function update() {
