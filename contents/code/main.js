@@ -32,6 +32,7 @@ function updateDesktops() {
       if (i != workspace.currentDesktop && winsInDesktop(i).length == 0)
         pullWinsFromDesktop(i);
   workspace.desktops = Math.max(minDesktops, desktops() + 1);
+  desktopGridHeight = workspace.desktops;
 }
 
 function update() {
